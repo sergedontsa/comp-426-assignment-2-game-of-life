@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2983275E272632CA0061EC61 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2983275D272632CA0061EC61 /* main.cpp */; };
+		29832766272633000061EC61 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29832765272633000061EC61 /* OpenCL.framework */; };
+		29832768272633080061EC61 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29832767272633080061EC61 /* OpenGL.framework */; };
+		2983276B272634BB0061EC61 /* libglut.3.11.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2983276A272634BB0061EC61 /* libglut.3.11.0.dylib */; };
+		2983276D272634DE0061EC61 /* libasan.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2983276C272634DE0061EC61 /* libasan.6.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,12 @@
 /* Begin PBXFileReference section */
 		2983275A272632CA0061EC61 /* comp-426-assign-2-programming */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "comp-426-assign-2-programming"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2983275D272632CA0061EC61 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		29832765272633000061EC61 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		29832767272633080061EC61 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		29832769272633C80061EC61 /* Patterns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Patterns.h; sourceTree = "<group>"; };
+		2983276A272634BB0061EC61 /* libglut.3.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglut.3.11.0.dylib; path = ../../../../../../../../usr/local/Cellar/freeglut/3.2.1_1/lib/libglut.3.11.0.dylib; sourceTree = "<group>"; };
+		2983276C272634DE0061EC61 /* libasan.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libasan.6.dylib; path = ../../../../../../../../usr/local/Cellar/gcc/11.2.0/lib/gcc/11/libasan.6.dylib; sourceTree = "<group>"; };
+		29AC61D6272DF21400204E9A /* Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Files; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2983276D272634DE0061EC61 /* libasan.6.dylib in Frameworks */,
+				2983276B272634BB0061EC61 /* libglut.3.11.0.dylib in Frameworks */,
+				29832768272633080061EC61 /* OpenGL.framework in Frameworks */,
+				29832766272633000061EC61 /* OpenCL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +57,7 @@
 			children = (
 				2983275C272632CA0061EC61 /* comp-426-assign-2-programming */,
 				2983275B272632CA0061EC61 /* Products */,
+				29832764272633000061EC61 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +72,22 @@
 		2983275C272632CA0061EC61 /* comp-426-assign-2-programming */ = {
 			isa = PBXGroup;
 			children = (
+				29AC61D6272DF21400204E9A /* Files */,
 				2983275D272632CA0061EC61 /* main.cpp */,
+				29832769272633C80061EC61 /* Patterns.h */,
 			);
 			path = "comp-426-assign-2-programming";
+			sourceTree = "<group>";
+		};
+		29832764272633000061EC61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2983276C272634DE0061EC61 /* libasan.6.dylib */,
+				2983276A272634BB0061EC61 /* libglut.3.11.0.dylib */,
+				29832767272633080061EC61 /* OpenGL.framework */,
+				29832765272633000061EC61 /* OpenCL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,7 +117,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					29832759272632CA0061EC61 = {
 						CreatedOnToolsVersion = 13.0;
@@ -240,7 +268,19 @@
 		29832762272632CA0061EC61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/libomp/13.0.0/include,
+					/usr/local/Cellar/glew/2.2.0_1/include,
+					/usr/local/Cellar/freeglut/3.2.1_1/include,
+					/usr/local/Cellar/tbb/2021.4.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/freeglut/3.2.1_1/lib,
+					/usr/local/Cellar/gcc/11.2.0/lib/gcc/11,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,7 +288,19 @@
 		29832763272632CA0061EC61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/libomp/13.0.0/include,
+					/usr/local/Cellar/glew/2.2.0_1/include,
+					/usr/local/Cellar/freeglut/3.2.1_1/include,
+					/usr/local/Cellar/tbb/2021.4.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/freeglut/3.2.1_1/lib,
+					/usr/local/Cellar/gcc/11.2.0/lib/gcc/11,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
