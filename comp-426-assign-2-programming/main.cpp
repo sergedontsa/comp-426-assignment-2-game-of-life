@@ -5,9 +5,9 @@
 //  Created by Serge Dontsa on 2021-10-24.
 //
 
-#ifdef _WIN32
-    #include <windows.h>
-#endif
+//#ifdef _WIN32
+//    #include <windows.h>
+//#endif
 
 #include <GL/glew.h>
 #include <GL/glut.h>
